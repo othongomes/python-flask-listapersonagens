@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/bootstrap.min.css')}}"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PERSONAGEM</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      {% for id, personagem in personagens.items() %}
+      <div class="row">
+        <div class="col-md-4">
+          <img
+            src="{{personagem['imagem']}}"
+            alt="{{personagem['nome']}}"
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-md-8">
+          <h1>{{personagem['nome']}}</h1>
+          <p>
+            É da raça {{personagem['raça']}} e estuda na {{personagem['casa']}}
+          </p>
+          <p>
+            {{personagem['nome']}} nasceu em {{personagem['nascimento']}} e tem
+            {{personagem['altura']}}m de altura
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+  </body>
+</html>
